@@ -1,5 +1,5 @@
-import React from "react";
-import { useQuery } from "react-query";
+import React from 'react';
+import { useQuery } from 'react-query';
 
 /**
  * This component is generated as an example for useQuery hook
@@ -9,11 +9,11 @@ import { useQuery } from "react-query";
  */
 
 const API_URL =
-    "https://official-joke-api.appspot.com/jokes/programming/random";
+    'https://official-joke-api.appspot.com/jokes/programming/random';
 
 export const ReactQueryExample = () => {
     const { data, refetch } = useQuery(
-        "repoData",
+        'repoData',
         () => fetch(API_URL).then((res) => res.json()),
         {
             refetchOnWindowFocus: false,

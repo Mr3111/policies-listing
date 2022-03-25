@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Pricing",
+    "fields": [
+      "totalCost",
+      "annualRealizableBenefits"
+    ]
+  },
+  {
+    "name": "Hostpitalization",
+    "fields": [
+      "preventiveHealthCheckup"
+    ]
+  },
+  {
+    "name": "Health Prime Benefits",
+    "fields": [
+      "doctorConsultations",
+      "labReimbursements",
+      "networkDiscount",
+      "teleConsultations"
+    ]
+  },
+  {
+    "name": "Insurance Benefits",
+    "fields": [
+      "coPay",
+      "ayushTreatment",
+      "preHospitalization",
+      "postHospitalization",
+      "roomRent"
+    ]
+  }
+]

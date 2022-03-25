@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
     GithubIcon,
     LinkedinIcon,
@@ -6,7 +6,7 @@ import {
     YoutubeIcon,
     NextjsIcon,
     PankodIcon,
-} from "@components/icons";
+} from '@components/icons';
 
 export const SvgrExample: React.FC = () => {
     return (

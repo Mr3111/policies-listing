@@ -1,10 +1,10 @@
-import React from "react";
-import { AppProps } from "next/app";
-import "antd/dist/antd.css";
-import { StyledThemeProvider } from "@definitions/styled-components";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { Hydrate } from "react-query/hydration";
-import { RecoilRoot } from "recoil";
+import React from 'react';
+import { AppProps } from 'next/app';
+import 'antd/dist/antd.css';
+import { StyledThemeProvider } from '@definitions/styled-components';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { Hydrate } from 'react-query/hydration';
+import { RecoilRoot } from 'recoil';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     const queryClient = new QueryClient();

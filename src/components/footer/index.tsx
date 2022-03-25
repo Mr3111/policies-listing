@@ -1,62 +1,18 @@
-import React, { CSSProperties } from "react";
-import { Space } from "antd";
-import {
-    GithubOutlined,
-    TwitterOutlined,
-    YoutubeOutlined,
-    LinkedinOutlined,
-} from "@ant-design/icons";
-
-import { PankodIcon } from "@components/icons";
+import React from 'react';
+import { Footer as BaseFooter } from 'antd/lib/layout/layout';
 
 export const Footer: React.FC = () => {
-    const iconStyle: CSSProperties = {
-        fontSize: 22,
-        color: "#fff",
-    };
     return (
-        <div
+        <BaseFooter
             style={{
-                backgroundColor: "#282c34",
-                color: "#fff",
-                textAlign: "center",
-                paddingTop: 32,
-                paddingBottom: 32,
+                textAlign: 'center',
+                position: 'fixed',
+                width: '100%',
+                left: 0,
+                bottom: 0,
             }}
         >
-            <Space direction="vertical" size="large">
-                <PankodIcon color="white" width="140" height="28" />
-                <Space align="center" size="middle">
-                    <a
-                        href="https://github.com/pankod"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <GithubOutlined />
-                    </a>
-                    <a
-                        href="https://twitter.com/PankodDev"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <TwitterOutlined />
-                    </a>
-                    <a
-                        href="https://www.youtube.com/channel/UCBGOeQkv1XW3ptryLWlQbAQ"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <YoutubeOutlined />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/company/pankod-yazilim-ve-danismanlik/"
-                        target="_blank"
-                        style={iconStyle}
-                    >
-                        <LinkedinOutlined />
-                    </a>
-                </Space>
-            </Space>
-        </div>
+            Page Design ©2022 Created by Rishab Mishra
+        </BaseFooter>
     );
 };

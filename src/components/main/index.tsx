@@ -1,27 +1,32 @@
-import React from "react";
+import React, { useState } from 'react';
 
-import { Button } from "@components";
+import { Button, Modal } from '@components';
+import {
+    IMetadata,
+    ProductComparator,
+    ProductComparatorProps,
+} from '../../modules/productComparator';
+import { Space, Tooltip } from 'antd';
+import {
+    RollbackOutlined,
+    SearchOutlined,
+    UndoOutlined,
+} from '@ant-design/icons';
 
-export const Main: React.FC = () => {
+type MainProps = Pick<ProductComparatorProps, 'products'>;
+
+export const Main: React.FC<MainProps> = ({ products }) => {
     return (
         <div
             style={{
-                backgroundColor: "#282c34",
-                color: "#fff",
-                textAlign: "center",
+                backgroundColor: '#282c34',
+                color: '#fff',
+                textAlign: 'center',
                 paddingTop: 32,
                 paddingBottom: 32,
             }}
         >
-            <h1 style={{ color: "#fff", fontSize: 46 }}>superplate</h1>
-            <p style={{ fontSize: 18 }}>
-                The frontend boilerplate with superpowers!
-            </p>
-            <Button type="primary" size="large">
-                <a href="https://pankod.github.io/superplate/" target="_blank">
-                    Docs
-                </a>
-            </Button>
+            <h1 style={{ color: '#fff', fontSize: 46 }}>Products comparator</h1>
         </div>
     );
 };

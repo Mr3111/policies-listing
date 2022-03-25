@@ -1,5 +1,5 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import Document, { DocumentContext, DocumentInitialProps } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
 class CustomDocument extends Document {
     static async getInitialProps(
