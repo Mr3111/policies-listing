@@ -4,7 +4,7 @@ import { Button } from '@components';
 import { Space, Typography } from 'antd';
 import { CloseOutlined, InfoCircleTwoTone } from '@ant-design/icons';
 
-export type IProductId = number;
+export type IProductId = string;
 
 export type IProduct = Partial<{
     key: IProductId;
@@ -51,9 +51,9 @@ const ProductComparatorContainer = styled.div`
 export type ProductComparatorProps = {
     products: IProduct[];
     metadata: IMetadata;
-    selectedProductId?: number;
+    selectedProductId?: IProductId;
     selectedKeys?: Array<IProductId>;
-    onProductSelect: (productId?: number) => void;
+    onProductSelect: (productId?: IProductId) => void;
 };
 
 export const ProductComparator: React.FC<ProductComparatorProps> = ({

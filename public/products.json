@@ -1,7 +1,7 @@
 [
     {
-        "id": 1,
-        "key": 1,
+        "id": "1",
+        "key": "1",
         "image": "https://source.unsplash.com/400x400/?medical",
         "name": "CHS Gold",
         "totalCost": 19500,
@@ -19,8 +19,8 @@
         "image": "https://via.placeholder.com/150"
     },
     {
-        "id": 2,
-        "key": 2,
+        "id": "2",
+        "key": "2",
         "name": "CHS Silver",
         "totalCost": 13500,
         "annualRealizableBenefits": "23000+/year",
@@ -36,8 +36,8 @@
         "image": "https://via.placeholder.com/150"
     },
     {
-        "id": 3,
-        "key": 3,
+        "id": "3",
+        "key": "3",
         "name": "CHS Platinum",
         "totalCost": 22500,
         "annualRealizableBenefits": "23000+/year",
@@ -53,8 +53,8 @@
         "image": "https://via.placeholder.com/150"
     },
     {
-        "id": 4,
-        "key": 4,
+        "id": "4",
+        "key": "4",
         "name": "Star Health",
         "isExternal": true,
         "totalCost": 19364,

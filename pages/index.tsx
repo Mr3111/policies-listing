@@ -5,6 +5,7 @@ import productsData from '@public/products.json';
 import {
     IMetadata,
     IProduct,
+    IProductId,
     ProductComparator,
 } from '../src/modules/productComparator';
 import { IKeys } from '@components/cards';
@@ -23,7 +24,7 @@ const ActionBar = styled.div`
 
 const Home: React.FC = () => {
     const [products, setProducts] = useState<IProduct[]>(productsData);
-    const [selectedProductId, setSelectedProductId] = useState<number>();
+    const [selectedProductId, setSelectedProductId] = useState<IProductId>();
 
     function reload() {
         setSelectedProductId(undefined);
