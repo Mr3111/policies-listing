@@ -8,11 +8,11 @@ import {
     IProductId,
     ProductComparator,
 } from '../src/modules/productComparator';
-import { IKeys } from '@components/cards';
 import { Layout, Space, Tooltip } from 'antd';
 import { UndoOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import Text from 'antd/lib/typography/Text';
+import { Key } from 'antd/lib/table/interface';
 
 const ActionBar = styled.div`
     display: flex;
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
         },
     ];
     // const [tableMetadata, setTableMetadata] = useState<IMetadata>(metadata);
-    const [selectedProductKeys, setSelectedProductKeys] = useState<IKeys>([]);
+    const [selectedProductKeys, setSelectedProductKeys] = useState<Key[]>([]);
     const { Header, Content } = Layout;
     return (
         <Layout>
