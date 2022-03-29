@@ -49,6 +49,9 @@
       "@styles": [
         "src/styles"
       ],
+      "@modules/*": [
+        "src/modules/*"
+      ],
       "@components/icons/*": [
         "src/components/icons/*"
       ],

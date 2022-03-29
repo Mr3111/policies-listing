@@ -1,9 +1,6 @@
 import React, { useMemo } from 'react';
-import { Table, Tag } from 'antd';
-import {
-    IProductId,
-    ProductComparatorProps,
-} from '../../modules/productComparator';
+import { Table as BaseTable, Tag } from 'antd';
+import { IProductId, ProductComparatorProps } from '@modules/productComparator';
 import { Button } from '@components/button';
 import styled from 'styled-components';
 import { Key } from 'antd/lib/table/interface';
@@ -19,7 +16,7 @@ const ProductListContainer = styled.div`
     padding: 20px;
 `;
 
-export const Cards: React.FC<CardProps> = ({
+export const Table: React.FC<CardProps> = ({
     products,
     selectedRowKeys,
     onSelectChange,
@@ -90,7 +87,7 @@ export const Cards: React.FC<CardProps> = ({
     // @ts-ignore
     return (
         <ProductListContainer>
-            <Table
+            <BaseTable
                 rowSelection={rowSelection}
                 columns={columns}
                 dataSource={products}

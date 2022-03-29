@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Button } from '@components';
 import { Space, Typography } from 'antd';
 import { CloseOutlined, InfoCircleTwoTone } from '@ant-design/icons';
+import { camelCaseToTitleCase } from '../../utils';
 
 export type IProductId = string;
 
@@ -64,11 +65,6 @@ export const ProductComparator: React.FC<ProductComparatorProps> = ({
     onProductSelect,
 }) => {
     const { Text } = Typography;
-    function camelCaseToTitleCase(str: string) {
-        return str.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) {
-            return str.toUpperCase();
-        });
-    }
 
     return (
         <ProductComparatorContainer>
