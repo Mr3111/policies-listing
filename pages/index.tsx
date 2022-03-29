@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
-import { Main, Table, Footer, Modal, Button } from '@components';
-import productsData from '@public/products.json';
+import { Footer, Modal, Button } from '@components';
+import productsData from '@public/productsComparator.json';
+import productsListData from '@public/products.json';
 import {
     IMetadata,
     IProduct,
@@ -13,7 +14,7 @@ import { UndoOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import Text from 'antd/lib/typography/Text';
 import { Key } from 'antd/lib/table/interface';
-import { ProductList, ProductListProps } from '@modules/productsList';
+import { ProductList } from '@modules/productsList';
 import { ProductCardProps } from '@components/card';
 import { ProductFilter } from '@modules/productFilter';
 
@@ -24,48 +25,6 @@ const ActionBar = styled.div`
     align-items: center;
     margin: 20px 40px 0 20px;
 `;
-
-const productsListData: ProductCardProps[] = [];
-for (let i = 1; i < 5; i++) {
-    productsListData.push({
-        id: i.toString(),
-        title: 'Complete Health Solution Gold',
-        features: [
-            {
-                title: 'Sum Insured',
-                description:
-                    'lore ipsum dolor sit amet, consectetur adipiscing elit.',
-                values: ['₹ 10 L'],
-            },
-            {
-                title: 'Claim Settled',
-                description:
-                    'lore ipsum dolor sit amet, consectetur adipiscing elit.',
-                values: ['98%'],
-            },
-            {
-                title: 'OPD',
-                description:
-                    'lore ipsum dolor sit amet, consectetur adipiscing elit.',
-                values: ['₹ 2500'],
-            },
-            {
-                title: 'Lab',
-                description:
-                    'lore ipsum dolor sit amet, consectetur adipiscing elit.',
-                values: ['₹ 5000'],
-            },
-        ],
-        cost: {
-            title: 'MRP',
-            description:
-                'lore ipsum dolor sit amet, consectetur adipiscing elit.',
-            values: ['₹ 1,356/ montly', '₹ 16,000/ yearly'],
-        },
-        avatar: 'https://source.unsplash.com/random/480x480',
-        highlights: ['Free in clinic', 'Free in hospital', 'Free in pharmacy'],
-    });
-}
 
 const Home: React.FC = () => {
     const [comparatorProducts, setComparatorProducts] =
@@ -117,6 +76,29 @@ const Home: React.FC = () => {
             );
         }
     };
+    const handleFilterClick = (key: string, value: string) => {
+        const newProducts = productsListData.filter((product) => {
+            return product.features.some((feature) => {
+                return feature.values.some((v) => v === value);
+            });
+        });
+        setFilteredProducts(newProducts);
+    };
+    const filters = useMemo(() => {
+        // return productsListData.reduce((acc, product) => {
+        //     product.features.forEach((feature) => {
+        //         feature.values.forEach((value) => {
+        //             if (!acc.some((f) => f.value === value)) {
+        //                 acc.push({
+        //                     key: feature.title,
+        //                     value,
+        //                 });
+        //             }
+        //         });
+        //     });
+        //     return acc;
+        // }, []);
+    }, []);
     const [filteredProducts, setFilteredProducts] =
         useState<ProductCardProps[]>(productsListData);
     return (
@@ -128,7 +110,10 @@ const Home: React.FC = () => {
             <Content style={{ padding: '0 50px' }}>
                 <Space direction="vertical">
                     <ActionBar>
-                        <ProductFilter filters={[{ key: 'sumInsured' }]} />
+                        <ProductFilter
+                            filters={[{ key: 'sumInsured' }]}
+                            onFilterClick={handleFilterClick}
+                        />
                     </ActionBar>
                     <ActionBar>
                         <Text

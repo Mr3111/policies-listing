@@ -24,18 +24,18 @@ const CardContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 1100px;
+    min-width: 1050px;
     height: 100%;
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid #e6e6e6;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    //padding: 20px;
     margin: 10px;
 `;
 
 const Content = styled.div`
     display: flex;
+    justify-content: space-between;
     column-gap: 20px;
     width: 100%;
     height: 100%;
@@ -56,6 +56,7 @@ const Footer = styled.div`
     height: 100%;
     padding: 20px;
     background-color: #f8f8f8;
+    border-top: 1px solid #e6e6e6;
 `;
 
 type FeatureProps = {
@@ -102,25 +103,29 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     return (
         <CardContainer>
             <Content>
-                <img src={avatar} alt={title} />
-                <div>
-                    <h2>{title}</h2>
-                    <Button type="primary" ghost>
-                        View Features
-                    </Button>
-                </div>
-                <Divider type="vertical" />
-                <Space align="start" size={14}>
-                    {features?.map((feature) => (
-                        <Feature key={feature.title} {...feature} />
-                    ))}
+                <Space align="start" size={20}>
+                    <img src={avatar} alt={title} />
+                    <div>
+                        <h2>{title}</h2>
+                        <Button type="dashed" disabled={isExternal}>
+                            View Features
+                        </Button>
+                    </div>
                 </Space>
-                <Divider type="vertical" />
-                <Feature
-                    title={cost.title}
-                    description={cost.description}
-                    values={cost.values}
-                />
+                <Space align="start">
+                    <Divider type="vertical" />
+                    <Space align="start" size={14}>
+                        {features?.map((feature) => (
+                            <Feature key={feature.title} {...feature} />
+                        ))}
+                    </Space>
+                    <Divider type="vertical" />
+                    <Feature
+                        title={cost.title}
+                        description={cost.description}
+                        values={cost.values}
+                    />
+                </Space>
             </Content>
             <Footer>
                 <Space align="start">
@@ -144,6 +149,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
                         <Button type="primary">Selected</Button>
                     ) : (
                         <Button
+                            type="primary"
+                            ghost
                             disabled={isExternal}
                             onClick={() => onSelect && onSelect(id)}
                         >

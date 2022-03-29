@@ -1,19 +1,18 @@
 import React from 'react';
-import { Space } from 'antd';
-import { ProductCard, ProductCardProps } from '@components/card';
+import { Select, Space } from 'antd';
 import { camelCaseToTitleCase } from '../../utils';
-import Text from 'antd/lib/typography/Text';
-import Link from 'antd/lib/typography/Link';
-import { CaretDownOutlined, DownOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import { Button } from '@components';
 
 export interface ProductFilterProps {
     filters: {
         title?: string;
         key: string;
+        options?: {
+            value: string;
+            label: string;
+        }[];
     }[];
-    onFilterClick?: (key: string) => void;
+    onFilterClick?: (key: string, value: string) => void;
 }
 
 const Filter = styled.div`
@@ -36,19 +35,26 @@ export const ProductFilter: React.FC<ProductFilterProps> = ({
     filters,
     onFilterClick,
 }) => {
+    const { Option } = Select;
     return (
         <Space>
-            {filters.map(({ key, title }) => {
+            {filters.map(({ key, title, options }) => {
                 return (
-                    <Button>
-                        <Space>
-                            <Text type="secondary">
-                                {title || camelCaseToTitleCase(key.toString())}:
-                            </Text>
-                            <Link>{key}</Link>
-                            <CaretDownOutlined />
-                        </Space>
-                    </Button>
+                    <Select
+                        showSearch={!!options}
+                        onChange={(value) =>
+                            onFilterClick && onFilterClick(key, value)
+                        }
+                        style={{ width: 200 }}
+                        placeholder={`${options ? 'Search to' : ''} Select ${
+                            title || camelCaseToTitleCase(key.toString())
+                        }`}
+                        optionFilterProp="children"
+                    >
+                        {options?.map(({ value, label }) => (
+                            <Option value={value}>{label}</Option>
+                        ))}
+                    </Select>
                 );
             })}
         </Space>

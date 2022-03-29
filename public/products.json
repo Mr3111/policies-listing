@@ -1,68 +1,190 @@
 [
-    {
-        "id": "1",
-        "key": "1",
-        "image": "https://source.unsplash.com/400x400/?medical",
-        "name": "CHS Gold",
-        "totalCost": 19500,
-        "annualRealizableBenefits": "₹ 23000+/year",
-        "doctorConsultations": "₹ 3000/year",
-        "labReimbursements": "₹ 10000/year",
-        "networkDiscount": "10%",
-        "teleConsultations": "Unlimited",
-        "coPay": "No co-pay",
-        "ayushTreatment": "Ayurvedic treatment included",
-        "preHospitalization": "60 days",
-        "postHospitalization": "90 days",
-        "roomRent": "Single Private Room",
-        "preventiveHealthCheckup": "₹ 5/10 Lacs",
-        "image": "https://via.placeholder.com/150"
+  {
+    "id": "3",
+    "title": "Complete Health Solution Platinum",
+    "features": [
+      {
+        "title": "Sum Insured",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 10 L"
+        ]
+      },
+      {
+        "title": "Claim Settled",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "98%"
+        ]
+      },
+      {
+        "title": "OPD",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 2500"
+        ]
+      },
+      {
+        "title": "Lab",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 5000"
+        ]
+      }
+    ],
+    "cost": {
+      "title": "MRP",
+      "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+      "values": [
+        "₹ 1,356/ montly",
+        "₹ 19,800/ yearly"
+      ]
     },
-    {
-        "id": "2",
-        "key": "2",
-        "name": "CHS Silver",
-        "totalCost": 13500,
-        "annualRealizableBenefits": "₹ 23000+/year",
-        "doctorConsultations": "₹ 4000/year",
-        "labReimbursements": "₹ 10000/year",
-        "networkDiscount": "10%",
-        "coPay": "No co-pay",
-        "ayushTreatment": "Ayurvedic treatment included",
-        "preHospitalization": "60 days",
-        "postHospitalization": "90 days",
-        "roomRent": "Single Private Room",
-        "preventiveHealthCheckup": "₹ 5/10 Lacs",
-        "image": "https://via.placeholder.com/150"
+    "avatar": "https://source.unsplash.com/random/480x480",
+    "highlights": [
+      "Free in clinic",
+      "Free Lab Tests",
+      "10% Network discounts"
+    ]
+  },
+  {
+    "id": "1",
+    "title": "Complete Health Solution Gold",
+    "features": [
+      {
+        "title": "Sum Insured",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 10 L"
+        ]
+      },
+      {
+        "title": "Claim Settled",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "94%"
+        ]
+      },
+      {
+        "title": "OPD",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 2500"
+        ]
+      },
+      {
+        "title": "Lab",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 5000"
+        ]
+      }
+    ],
+    "cost": {
+      "title": "MRP",
+      "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+      "values": [
+        "₹ 1,356/ montly",
+        "₹ 16,000/ yearly"
+      ]
     },
-    {
-        "id": "3",
-        "key": "3",
-        "name": "CHS Platinum",
-        "totalCost": 22500,
-        "annualRealizableBenefits": "₹ 23000+/year",
-        "doctorConsultations": "₹ 6000/year",
-        "labReimbursements": "₹ 10000/year",
-        "networkDiscount": "10%",
-        "teleConsultations": "Unlimited",
-        "coPay": "No co-pay",
-        "preHospitalization": "60 days",
-        "postHospitalization": "90 days",
-        "roomRent": "Single Private Room",
-        "preventiveHealthCheckup": "₹ 5/10 Lacs",
-        "image": "https://via.placeholder.com/150"
+    "avatar": "https://source.unsplash.com/random/480x480",
+    "highlights": [
+      "Free in clinic",
+      "Free in hospital",
+      "Free in pharmacy"
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Complete Health Solution Silver",
+    "features": [
+      {
+        "title": "Sum Insured",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 10 L"
+        ]
+      },
+      {
+        "title": "Claim Settled",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "85.6%"
+        ]
+      },
+      {
+        "title": "OPD",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 1500"
+        ]
+      },
+      {
+        "title": "Lab",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 3000"
+        ]
+      }
+    ],
+    "cost": {
+      "title": "MRP",
+      "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+      "values": [
+        "₹ 1,356/ montly",
+        "₹ 10,800/ yearly"
+      ]
     },
-    {
-        "id": "4",
-        "key": "4",
-        "name": "Star Health",
-        "isExternal": true,
-        "totalCost": 19364,
-        "annualRealizableBenefits": "₹ 3200/year",
-        "doctorConsultations": "₹ 2000/year",
-        "coPay": "10% copay",
-        "ayushTreatment": "Yes for period exceeding 3 days",
-        "preHospitalization": "60 days",
-        "postHospitalization": "90"
-    }
+    "avatar": "https://source.unsplash.com/random/480x480",
+    "highlights": [
+      "Free in clinic"
+    ]
+  },
+  {
+    "id": "4",
+    "isExternal": true,
+    "title": "Star Health",
+    "features": [
+      {
+        "title": "Sum Insured",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 10 L"
+        ]
+      },
+      {
+        "title": "Claim Settled",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "98%"
+        ]
+      },
+      {
+        "title": "OPD",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 2500"
+        ]
+      },
+      {
+        "title": "Lab",
+        "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+        "values": [
+          "₹ 5000"
+        ]
+      }
+    ],
+    "cost": {
+      "title": "MRP",
+      "description": "lore ipsum dolor sit amet, consectetur adipiscing elit.",
+      "values": [
+        "₹ 1,356/ montly",
+        "₹ 19,000/ yearly"
+      ]
+    },
+    "avatar": "https://source.unsplash.com/random/480x480",
+    "highlights": [
+    ]
+  }
 ]
