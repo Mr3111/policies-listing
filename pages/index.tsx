@@ -111,7 +111,10 @@ const Home: React.FC = () => {
                 <Space direction="vertical">
                     <ActionBar>
                         <ProductFilter
-                            filters={[{ key: 'sumInsured' }]}
+                            filters={[
+                                { key: 'sumInsured' },
+                                { key: 'maxAgeLimit' },
+                            ]}
                             onFilterClick={handleFilterClick}
                         />
                     </ActionBar>
