@@ -7,7 +7,7 @@ import { camelCaseToTitleCase } from '../../utils';
 
 export type IProductId = string;
 
-export type IProduct = Partial<{
+export type IProductComparator = Partial<{
     key: IProductId;
     id: IProductId;
     isExternal: boolean;
@@ -29,7 +29,7 @@ export type IProduct = Partial<{
 
 type Row = {
     name: string;
-    fields: Array<keyof IProduct>;
+    fields: Array<keyof IProductComparator>;
 };
 
 export type IMetadata = Row[];
@@ -50,7 +50,7 @@ const ProductComparatorContainer = styled.div`
 `;
 
 export type ProductComparatorProps = {
-    products: IProduct[];
+    products: IProductComparator[];
     metadata: IMetadata;
     selectedProductId?: IProductId;
     selectedKeys?: Array<IProductId>;

@@ -6,7 +6,7 @@ import { CheckOutlined, InfoCircleOutlined } from '@ant-design/icons';
 import Title from 'antd/lib/typography/Title';
 import { IProductId } from '@modules/productComparator';
 
-export interface ProductCardProps {
+export interface IProductCardProps {
     id: IProductId;
     title: string;
     features: { title: string; description: string; values: string[] }[];
@@ -88,7 +88,7 @@ function Feature({ title, description, values }: FeatureProps) {
     );
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+export const ProductCard: React.FC<IProductCardProps> = ({
     id,
     cost,
     features,

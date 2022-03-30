@@ -1,10 +1,10 @@
 import React, { Key } from 'react';
 import { Space } from 'antd';
-import { ProductCard, ProductCardProps } from '@components/card';
+import { ProductCard, IProductCardProps } from '@components/card';
 import { IProductId } from '@modules/productComparator';
 
 export interface ProductListProps {
-    products: ProductCardProps[];
+    products: IProductCardProps[];
     onAddToCompare: (key: Key, value: boolean) => void;
     selectedProductId?: IProductId;
     onSelect?: (id: IProductId) => void;

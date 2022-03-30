@@ -5,7 +5,7 @@ import productsData from '@public/productsComparator.json';
 import productsListData from '@public/products.json';
 import {
     IMetadata,
-    IProduct,
+    IProductComparator,
     IProductId,
     ProductComparator,
 } from '@modules/productComparator';
@@ -15,7 +15,7 @@ import styled from 'styled-components';
 import Text from 'antd/lib/typography/Text';
 import { Key } from 'antd/lib/table/interface';
 import { ProductList } from '@modules/productsList';
-import { ProductCardProps } from '@components/card';
+import { IProductCardProps } from '@components/card';
 import { ProductFilter } from '@modules/productFilter';
 
 const ActionBar = styled.div`
@@ -28,7 +28,7 @@ const ActionBar = styled.div`
 
 const Home: React.FC = () => {
     const [comparatorProducts, setComparatorProducts] =
-        useState<IProduct[]>(productsData);
+        useState<IProductComparator[]>(productsData);
     const [selectedProductId, setSelectedProductId] = useState<IProductId>();
 
     function reload() {
@@ -100,7 +100,7 @@ const Home: React.FC = () => {
         // }, []);
     }, []);
     const [filteredProducts, setFilteredProducts] =
-        useState<ProductCardProps[]>(productsListData);
+        useState<IProductCardProps[]>(productsListData);
     return (
         <Layout>
             <Header className="header">
