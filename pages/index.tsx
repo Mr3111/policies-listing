@@ -9,7 +9,7 @@ import {
     IProductId,
     ProductComparator,
 } from '@modules/productComparator';
-import { Layout, Space, Tooltip } from 'antd';
+import { Breadcrumb, Layout, Space, Tooltip } from 'antd';
 import { UndoOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import Text from 'antd/lib/typography/Text';
@@ -17,6 +17,8 @@ import { Key } from 'antd/lib/table/interface';
 import { ProductList } from '@modules/productsList';
 import { IProductCardProps } from '@components/card';
 import { ProductFilter } from '@modules/productFilter';
+import { BajajLongIcon } from '@components/icons';
+import Title from 'antd/lib/typography/Title';
 
 const ActionBar = styled.div`
     display: flex;
@@ -24,6 +26,11 @@ const ActionBar = styled.div`
     column-gap: 1rem;
     align-items: center;
     margin: 20px 40px 0 20px;
+`;
+
+const LogoContainer = styled.div`
+    height: 32px;
+    margin: 16px;
 `;
 
 const Home: React.FC = () => {
@@ -101,82 +108,121 @@ const Home: React.FC = () => {
     }, []);
     const [filteredProducts, setFilteredProducts] =
         useState<IProductCardProps[]>(productsListData);
+    const [collapsed, setCollapsed] = useState(false);
+    const onCollapse = (collapsed: boolean) => {
+        setCollapsed(collapsed);
+    };
     return (
-        <Layout>
-            <Header className="header">
-                <h1 style={{ color: '#fff' }}>Products comparator</h1>
-                <div className="logo" />
-            </Header>
-            <Content style={{ padding: '0 50px' }}>
-                <Space direction="vertical">
-                    <ActionBar>
-                        <ProductFilter
-                            filters={[
-                                { key: 'sumInsured' },
-                                { key: 'maxAgeLimit' },
-                            ]}
-                            onFilterClick={handleFilterClick}
-                        />
-                    </ActionBar>
-                    <ActionBar>
-                        <Text
-                            type={
-                                selectedProductKeys.length > 1
-                                    ? 'success'
-                                    : 'danger'
-                            }
-                        >
-                            {selectedProductKeys.length > 1
-                                ? `Click on Compare to compare the ${selectedProductKeys.length} selected policies`
-                                : 'Please select at least 2 policies using checkbox to compare'}
-                        </Text>
-                        <Space>
-                            <Modal
-                                buttonText="Compare"
-                                title="Comparison View"
-                                width={350 + 200 * comparatorProducts.length}
-                                okButtonProps={{
-                                    disabled: !selectedProductId,
-                                }}
-                                isButtonDisabled={
-                                    selectedProductKeys.length < 2
-                                }
-                                centered
-                            >
-                                <ProductComparator
-                                    products={comparatorProducts.filter(
-                                        ({ key }) =>
-                                            selectedProductKeys?.includes(key!),
-                                    )}
-                                    metadata={metadata}
-                                    selectedProductId={selectedProductId}
-                                    onProductSelect={setSelectedProductId}
+        <Layout style={{ minHeight: '100vh' }}>
+            <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+                <LogoContainer>
+                    <BajajLongIcon />
+                </LogoContainer>
+            </Sider>
+            <Layout>
+                <Header
+                    style={{
+                        padding: 0,
+                        background: '#fff',
+                        textAlign: 'center',
+                    }}
+                >
+                    <Title style={{ marginTop: '16px' }} level={2}>
+                        Product Comparator
+                    </Title>
+                </Header>
+                <Content style={{ margin: '0 16px' }}>
+                    <Breadcrumb style={{ margin: '16px 0' }}>
+                        <Breadcrumb.Item>Products</Breadcrumb.Item>
+                        <Breadcrumb.Item>All</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <div
+                        style={{
+                            padding: 24,
+                            minHeight: 360,
+                            background: '#fff',
+                        }}
+                    >
+                        <Space direction="vertical">
+                            <ActionBar>
+                                <ProductFilter
+                                    filters={[
+                                        { key: 'sumInsured' },
+                                        { key: 'maxAgeLimit' },
+                                    ]}
+                                    onFilterClick={handleFilterClick}
                                 />
-                            </Modal>
-                            <Tooltip title="Reload Data">
-                                <Button
-                                    shape="circle"
-                                    icon={<UndoOutlined />}
-                                    onClick={reload}
-                                />
-                            </Tooltip>
+                            </ActionBar>
+                            <ActionBar>
+                                <Text
+                                    type={
+                                        selectedProductKeys.length > 1
+                                            ? 'success'
+                                            : 'danger'
+                                    }
+                                >
+                                    {selectedProductKeys.length > 1
+                                        ? `Click on Compare to compare the ${selectedProductKeys.length} selected policies`
+                                        : 'Please select at least 2 policies using checkbox to compare'}
+                                </Text>
+                                <Space>
+                                    <Modal
+                                        buttonText="Compare"
+                                        title="Comparison View"
+                                        width={
+                                            350 +
+                                            200 * comparatorProducts.length
+                                        }
+                                        okButtonProps={{
+                                            disabled: !selectedProductId,
+                                        }}
+                                        isButtonDisabled={
+                                            selectedProductKeys.length < 2
+                                        }
+                                        centered
+                                    >
+                                        <ProductComparator
+                                            products={comparatorProducts.filter(
+                                                ({ key }) =>
+                                                    selectedProductKeys?.includes(
+                                                        key!,
+                                                    ),
+                                            )}
+                                            metadata={metadata}
+                                            selectedProductId={
+                                                selectedProductId
+                                            }
+                                            onProductSelect={
+                                                setSelectedProductId
+                                            }
+                                        />
+                                    </Modal>
+                                    <Tooltip title="Reload Data">
+                                        <Button
+                                            shape="circle"
+                                            icon={<UndoOutlined />}
+                                            onClick={reload}
+                                        />
+                                    </Tooltip>
+                                </Space>
+                            </ActionBar>
+                            {/*<Table*/}
+                            {/*    products={comparatorProducts}*/}
+                            {/*    selectedProductId={selectedProductId}*/}
+                            {/*    selectedRowKeys={selectedProductKeys}*/}
+                            {/*    onSelectChange={setSelectedProductKeys}*/}
+                            {/*/>*/}
+                            <ProductList
+                                products={filteredProducts}
+                                selectedProductId={selectedProductId}
+                                onAddToCompare={handleAddToComparator}
+                                onSelect={setSelectedProductId}
+                            />
                         </Space>
-                    </ActionBar>
-                    {/*<Table*/}
-                    {/*    products={comparatorProducts}*/}
-                    {/*    selectedProductId={selectedProductId}*/}
-                    {/*    selectedRowKeys={selectedProductKeys}*/}
-                    {/*    onSelectChange={setSelectedProductKeys}*/}
-                    {/*/>*/}
-                    <ProductList
-                        products={filteredProducts}
-                        selectedProductId={selectedProductId}
-                        onAddToCompare={handleAddToComparator}
-                        onSelect={setSelectedProductId}
-                    />
-                </Space>
-            </Content>
-            <Footer />
+                    </div>
+                </Content>
+                <Footer />
+            </Layout>
         </Layout>
     );
 };
