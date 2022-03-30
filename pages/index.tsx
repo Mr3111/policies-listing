@@ -113,8 +113,20 @@ const Home: React.FC = () => {
         setCollapsed(collapsed);
     };
     return (
-        <Layout style={{ minHeight: '100vh' }}>
-            <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+        <Layout hasSider style={{ minHeight: '100vh' }}>
+            <Sider
+                style={{
+                    overflow: 'auto',
+                    height: '100vh',
+                    position: 'sticky',
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                }}
+                collapsible
+                collapsed={collapsed}
+                onCollapse={onCollapse}
+            >
                 <LogoContainer>
                     <BajajLongIcon />
                 </LogoContainer>
@@ -128,7 +140,7 @@ const Home: React.FC = () => {
                     }}
                 >
                     <Title style={{ marginTop: '16px' }} level={2}>
-                        Product Comparator
+                        Product Listing
                     </Title>
                 </Header>
                 <Content style={{ margin: '0 16px' }}>
